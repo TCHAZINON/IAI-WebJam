@@ -1,0 +1,162 @@
+/* 🌍 Base */
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #1e1e2f;
+  color: #fff;
+}
+
+/* 🗺️ Carte */
+#map {
+  height: 100vh;
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+}
+
+/* 📇 Carte info (flip) */
+.card-container {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 360px;
+  height: 480px;
+  perspective: 1000px;
+  display: none;
+  z-index: 1000;
+  animation: fadeIn 0.6s ease forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateX(-50%) translateY(20px); }
+  to { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+
+.card {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.8s ease;
+}
+
+.card.flip {
+  transform: rotateY(180deg);
+}
+
+.card-side {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  background: rgba(0, 0, 0, 0.6);
+  color: #f0f0f0;
+  padding: 24px;
+  text-align: center;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.card-front img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.card-back {
+  transform: rotateY(180deg);
+}
+
+/* 🎵 Contenu */
+#countryName {
+  font-size: 22px;
+  font-weight: bold;
+  color: #ffd700;
+  margin-bottom: 10px;
+}
+
+#welcomeText {
+  font-size: 18px;
+  font-style: italic;
+  color: #ffddcc;
+  margin-bottom: 15px;
+}
+
+#dishDesc {
+  font-size: 16px;
+  color: #ffffff;
+}
+
+/* 🎛️ Boutons */
+button {
+  margin-top: 15px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  background: #38bdf8;
+  color: #fff;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background: #0ea5e9;
+}
+
+.close-btn {
+  background: #ef4444;
+  color: white;
+}
+
+/* 🖼️ Carte fond */
+#infoCard {
+  background-size: cover;
+  background-position: center;
+  border-radius: 15px;
+  overflow: hidden;
+  color: white;
+}
+
+#infoCard .card-side {
+  background: rgba(0,0,0,0.6);
+  border-radius: 15px;
+  padding: 20px;
+}
+
+/* 📱 Responsive */
+@media (max-width: 480px) {
+  .card-container {
+    width: 90%;
+    height: 440px;
+    bottom: 20px;
+  }
+
+  .card-side {
+    padding: 16px;
+    font-size: 15px;
+  }
+
+  #countryName {
+    font-size: 20px;
+  }
+
+  #welcomeText {
+    font-size: 16px;
+  }
+
+  #dishDesc {
+    font-size: 15px;
+  }
+
+  button {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+}

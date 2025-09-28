@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title> Un Monde Sans Frontières</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preload" href="marker-icon.png" as="image" />
+<link rel="preload" href="marker-shadow.png" as="image" />
+</head>
+
+<body>
+
+  <!--  Carte -->
+  <div id="map"></div>
+  <!-- info de la carte-->
+<div id="infoCard" class="card-container">
+  <div id="flipCard" class="card">
+    <div class="card-side card-front">
+      <h2 id="countryName"></h2>
+      <img id="dishImg" src="" alt="Plat traditionnel" />
+      <p id="dishDesc"></p>
+      <button onclick="flipCard()">🎵 Voir musique</button>
+    </div>
+    <div class="card-side card-back">
+      <h3 id="musicTitle"></h3>
+      <audio id="musicPlayer" controls></audio>
+      <p id="welcomeText"></p>
+      <button class="close-btn" onclick="closeCard()">Fermer</button>
+    </div>
+  </div>
+</div>
+
+  <!-- Leaflet JS -->
+   <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
