@@ -12,22 +12,56 @@ body, html {
 #map {
   height: 100vh;
   width: 100%;
-  border-radius: 10px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
 }
 
-/* 📇 Carte info (flip) */
+/* 🎛️ Menu de sélection */
+#menu {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0,0,0,0.7);
+  padding: 12px 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+#menu label {
+  font-size: 14px;
+  color: #ffd700;
+  font-weight: bold;
+}
+
+#menu select {
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  background: #38bdf8;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#menu select:hover {
+  background: #0ea5e9;
+}
+
+/* 📇 Carte info */
 .card-container {
   position: fixed;
   bottom: 30px;
   left: 50%;
   transform: translateX(-50%);
-  width: 360px;
-  height: 480px;
-  perspective: 1000px;
+  width: 340px;
+  height: auto;
   display: none;
   z-index: 1000;
-  animation: fadeIn 0.6s ease forwards;
+  animation: fadeIn 0.5s ease forwards;
 }
 
 @keyframes fadeIn {
@@ -37,126 +71,63 @@ body, html {
 
 .card {
   width: 100%;
-  height: 100%;
-  position: relative;
-  transform-style: preserve-3d;
-  transition: transform 0.8s ease;
-}
-
-.card.flip {
-  transform: rotateY(180deg);
-}
-
-.card-side {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  backface-visibility: hidden;
+  background: rgba(0,0,0,0.8);
   border-radius: 15px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-  background: rgba(0, 0, 0, 0.6);
-  color: #f0f0f0;
-  padding: 24px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+  padding: 20px;
   text-align: center;
-  font-size: 16px;
-  line-height: 1.5;
+  color: #fff;
 }
 
-.card-front img {
+.card img {
   width: 100%;
-  height: 220px;
-  object-fit: cover;
-  border-radius: 10px;
+  max-height: 300px; /* plus flexible */
+  object-fit: contain; /* l’image s’adapte au cadre sans être coupée */
+  border-radius: 12px;
+  margin-bottom: 15px;
+  background: #000; /* fond noir si image ne remplit pas tout */
 }
 
-.card-back {
-  transform: rotateY(180deg);
-}
 
-/* 🎵 Contenu */
-#countryName {
-  font-size: 22px;
-  font-weight: bold;
-  color: #ffd700;
+.card h2 {
+  font-size: 20px;
   margin-bottom: 10px;
+  color: #ffd700;
 }
 
-#welcomeText {
-  font-size: 18px;
-  font-style: italic;
-  color: #ffddcc;
+.card p {
+  font-size: 15px;
   margin-bottom: 15px;
 }
 
-#dishDesc {
-  font-size: 16px;
-  color: #ffffff;
-}
-
-/* 🎛️ Boutons */
-button {
-  margin-top: 15px;
-  padding: 10px 20px;
+/* 🎛️ Bouton */
+button.close-btn {
+  padding: 8px 16px;
   border: none;
   border-radius: 8px;
-  cursor: pointer;
+  background: #ef4444;
+  color: white;
   font-weight: bold;
-  background: #38bdf8;
-  color: #fff;
+  cursor: pointer;
   transition: background 0.3s ease;
 }
 
-button:hover {
-  background: #0ea5e9;
-}
-
-.close-btn {
-  background: #ef4444;
-  color: white;
-}
-
-/* 🖼️ Carte fond */
-#infoCard {
-  background-size: cover;
-  background-position: center;
-  border-radius: 15px;
-  overflow: hidden;
-  color: white;
-}
-
-#infoCard .card-side {
-  background: rgba(0,0,0,0.6);
-  border-radius: 15px;
-  padding: 20px;
+button.close-btn:hover {
+  background: #dc2626;
 }
 
 /* 📱 Responsive */
 @media (max-width: 480px) {
+  #menu {
+    flex-direction: column;
+    gap: 8px;
+  }
+
   .card-container {
     width: 90%;
-    height: 440px;
-    bottom: 20px;
   }
 
-  .card-side {
-    padding: 16px;
-    font-size: 15px;
-  }
-
-  #countryName {
-    font-size: 20px;
-  }
-
-  #welcomeText {
-    font-size: 16px;
-  }
-
-  #dishDesc {
-    font-size: 15px;
-  }
-
-  button {
-    padding: 8px 16px;
-    font-size: 14px;
+  .card img {
+    height: 160px;
   }
 }

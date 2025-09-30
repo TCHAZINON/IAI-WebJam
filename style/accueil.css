@@ -1,0 +1,154 @@
+/* Base */
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: Arial, sans-serif;
+  color: white;
+  text-align: center;
+  overflow-x: hidden; /* garder le scroll vertical */
+}
+
+/* Vidéo en fond */
+.background-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+
+video {
+  animation: fadeInVideo 2s ease forwards;
+  opacity: 0.85;
+}
+
+@keyframes fadeInVideo {
+  from { opacity: 0; }
+  to { opacity: 0.85; }
+}
+
+
+
+/* Responsive logos */
+@media (max-width: 480px) {
+  .logo-bar {
+    flex-direction: column;
+    gap: 15px;
+    top: 10px;
+  }
+  .logo {
+    height: 60px;
+    max-width: 140px;
+  }
+}
+
+/* Contenu central */
+.content {
+  position: relative;
+  top: 30%;
+  transform: translateY(-50%);
+  z-index: 1;
+  text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin: 0;
+}
+
+p {
+  font-size: 1.2rem;
+  margin: 10px 0 30px;
+}
+
+.btn {
+  position: relative;   /* plus "absolute" pour éviter le chevauchement */
+  margin-top: 80vh;     /* pousse le bouton en dessous du globe (ajuste la valeur si nécessaire) */
+  padding: 15px 40px;
+  font-size: 1.3rem;
+  background: rgba(20, 132, 206, 0.7);
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  color: #fff;
+  transition: background 0.3s, transform 0.2s;
+  z-index: 2;
+}
+
+.btn:hover {
+  background: rgba(133, 195, 18, 0.6);
+  transform: scale(1.05);
+}
+
+
+
+/* Section thématique */
+.themes {
+  margin-top: 60px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  padding: 40px;
+  z-index: 1;
+  position: relative;
+}
+
+.theme-card {
+  background: rgba(0, 0, 0, 0.65);
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  transition: transform 0.3s, background 0.3s;
+}
+
+.theme-card:hover {
+  transform: translateY(-10px);
+  background: rgba(100, 20, 206, 0.7);
+}
+
+.theme-card h2 {
+  color: #067f8a;
+  margin-bottom: 10px;
+}
+
+.theme-card p {
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+/* Section avis */
+.feedback {
+  margin: 60px auto;
+  max-width: 600px;
+  background: rgba(0,0,0,0.65);
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.5);
+  position: relative;
+  z-index: 1;
+}
+
+.feedback h2 {
+  color: #3862f8;
+  margin-bottom: 15px;
+}
+
+.feedback textarea {
+  width: 100%;
+  height: 120px;
+  border-radius: 10px;
+  border: none;
+  padding: 12px;
+  font-size: 1rem;
+  resize: none;
+  outline: none;
+}
+
+.feedback button {
+  margin-top: 15px;
+}
