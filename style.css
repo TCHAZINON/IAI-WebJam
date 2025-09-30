@@ -1,4 +1,4 @@
-/* 🌍 Base */
+/* Base */
 body, html {
   margin: 0;
   padding: 0;
@@ -8,13 +8,13 @@ body, html {
   color: #fff;
 }
 
-/* 🗺️ Carte */
+/*  Carte */
 #map {
   height: 100vh;
   width: 100%;
 }
 
-/* 🎛️ Menu de sélection */
+/*  Menu de sélection */
 #menu {
   position: fixed;
   top: 20px;
@@ -51,7 +51,7 @@ body, html {
   background: #0ea5e9;
 }
 
-/* 📇 Carte info */
+/*  Carte info */
 .card-container {
   position: fixed;
   bottom: 30px;
@@ -100,7 +100,7 @@ body, html {
   margin-bottom: 15px;
 }
 
-/* 🎛️ Bouton */
+/*  Bouton */
 button.close-btn {
   padding: 8px 16px;
   border: none;
@@ -116,7 +116,7 @@ button.close-btn:hover {
   background: #dc2626;
 }
 
-/* 📱 Responsive */
+/*  Responsive */
 @media (max-width: 480px) {
   #menu {
     flex-direction: column;
